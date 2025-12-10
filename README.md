@@ -6,160 +6,158 @@
 <title>Контакты — Новый год</title>
 
 <style>
-  /* === Анимированный зимний фон === */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Rubik', sans-serif;
-    background: linear-gradient(-45deg, #9dd2ff, #cfe9ff, #f0faff, #b4e3ff);
-    background-size: 400% 400%;
-    animation: winterBG 15s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-    overflow: hidden;
-  }
+/* === Анимированный зимний фон === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  background: linear-gradient(-45deg, #9dd2ff, #cfe9ff, #f0faff, #b4e3ff);
+  background-size: 400% 400%;
+  animation: winterBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  overflow: hidden;
+}
+@keyframes winterBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
-  @keyframes winterBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
+/* === Кнопка музыки === */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.5);
+  z-index: 999;
+}
+.music-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,1);
+}
 
-  /* === Кнопка музыки === */
-  .music-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(255,255,255,0.85);
-    border-radius: 12px;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.5);
-    z-index: 999;
-  }
-  .music-btn:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,1);
-  }
+/* === Переключатель языка === */
+.lang-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.5);
+  z-index: 999;
+}
+.lang-switch:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,1);
+}
 
-  /* === Переключатель языка === */
-  .lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.85);
-    border-radius: 12px;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.5);
-    z-index: 999;
-  }
-  .lang-switch:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,1);
-  }
+/* === Контейнер === */
+.container {
+  max-width: 500px;
+  width: 90%;
+  background: rgba(255,255,255,0.85);
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  animation: fadeIn 1.5s ease forwards;
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.6);
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
-  /* === Контейнер === */
-  .container {
-    max-width: 500px;
-    width: 90%;
-    background: rgba(255,255,255,0.85);
-    padding: 40px 30px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    animation: fadeIn 1.5s ease forwards;
-    backdrop-filter: blur(4px);
-    border: 2px solid rgba(255,255,255,0.6);
-  }
+h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #005cb2;
+  text-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+p {
+  font-size: 17px;
+  margin-bottom: 30px;
+}
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
+/* === Новогодние кнопки === */
+.contacts a {
+  display: block;
+  margin: 12px 0;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(90deg, #e53935, #d32f2f);
+  padding: 14px 0;
+  border-radius: 15px;
+  font-size: 19px;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s forwards;
+}
+.contacts a:hover {
+  background: linear-gradient(90deg, #b71c1c, #d32f2f);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.contacts a:nth-child(1) {animation-delay: 0.2s;}
+.contacts a:nth-child(2) {animation-delay: 0.4s;}
+.contacts a:nth-child(3) {animation-delay: 0.6s;}
 
-  h1 {
-    margin-bottom: 20px;
-    font-size: 32px;
-    color: #005cb2;
-    text-shadow: 0 0 8px rgba(255,255,255,0.8);
-  }
-  p {
-    font-size: 17px;
-    margin-bottom: 30px;
-  }
+@keyframes slideUp {
+  to {opacity: 1; transform: translateY(0);}
+}
 
-  /* === Новогодние кнопки === */
-  .contacts a {
-    display: block;
-    margin: 12px 0;
-    text-decoration: none;
-    color: #fff;
-    background: linear-gradient(90deg, #e53935, #d32f2f);
-    padding: 14px 0;
-    border-radius: 15px;
-    font-size: 19px;
-    font-weight: 500;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.5s forwards;
+/* === Снег === */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  user-select: none;
+  animation: snowfall linear infinite;
+  opacity: 0.8;
+}
+@keyframes snowfall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0.2;
   }
-  .contacts a:hover {
-    background: linear-gradient(90deg, #b71c1c, #d32f2f);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  }
-  .contacts a:nth-child(1) {animation-delay: 0.2s;}
-  .contacts a:nth-child(2) {animation-delay: 0.4s;}
-  .contacts a:nth-child(3) {animation-delay: 0.6s;}
-
-  @keyframes slideUp {
-    to {opacity: 1; transform: translateY(0);}
-  }
-
-  /* === Снег === */
-  .snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    font-size: 1em;
-    user-select: none;
-    animation: snowfall linear infinite;
-    opacity: 0.8;
-  }
-  @keyframes snowfall {
-    to {
-      transform: translateY(110vh);
-      opacity: 0.2;
-    }
-  }
+}
 </style>
 </head>
 <body>
 
-<!-- Музыка -->
+<!-- Кнопки -->
 <div class="music-btn" onclick="toggleMusic()">🔔 Музыка</div>
+<div class="lang-switch" onclick="toggleLang()">RU / EN</div>
+
+<!-- Аудио -->
 <audio id="bgMusic" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/12/26/audio_7ebf05e400.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Переключатель языка -->
-<div class="lang-switch" onclick="toggleLang()">RU / EN</div>
-
-<!-- Контент -->
+<!-- Контейнер -->
 <div class="container">
   <h1 id="title">🎄 Привет! Я Карло 🎅</h1>
   <p id="subtitle">Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨</p>
@@ -187,9 +185,8 @@
   /* === Музыка === */
   let isPlaying = false;
   const music = document.getElementById("bgMusic");
-
   function toggleMusic() {
-    if (isPlaying) {
+    if(isPlaying) {
       music.pause();
       isPlaying = false;
       document.querySelector(".music-btn").innerHTML = "🔔 Музыка";
@@ -203,11 +200,11 @@
 
   /* === Переключение языка === */
   let currentLang = "ru";
-
   function toggleLang() {
     currentLang = currentLang === "ru" ? "en" : "ru";
-
-    if (currentLang === "ru") {
+    const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
+    if(currentLang === "ru") {
       title.innerHTML = "🎄 Привет! Я Карло 🎅";
       subtitle.innerHTML = "Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
     } else {
