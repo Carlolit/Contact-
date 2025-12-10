@@ -142,7 +142,9 @@
   transition: 0.3s;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255,255,255,0.5);
+  z-index: 2000;
 }
+
 .music-btn:hover {
   transform: scale(1.05);
   background: rgba(255,255,255,1);
