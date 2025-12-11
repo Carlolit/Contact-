@@ -72,14 +72,27 @@
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: 0.3s;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.5);
     z-index: 999;
   }
   .lang-switch:hover { background: rgba(255,255,255,1); transform: scale(1.05); }
 
-  /* Проигрыватель */
-  .player { margin: 20px 0; }
+  /* Кнопка музыки */
+  .music-btn {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #42a5f5, #1e88e5);
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 18px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  }
+  .music-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #1565c0, #1e88e5);
+  }
 
   /* Снег */
   .snowflake {
@@ -93,11 +106,15 @@
   }
   @keyframes snowfall { to { transform: translateY(110vh); opacity: 0.2; } }
 
+  /* Прячем стандартный плеер */
+  audio {
+    display: none;
+  }
+
 </style>
 </head>
 <body>
 
-<!-- Кнопка RU/EN -->
 <div class="lang-switch" onclick="toggleLang()">RU / EN</div>
 
 <div class="container">
@@ -105,14 +122,13 @@
   <p id="subtitle">Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨</p>
 
   <!-- Проигрыватель -->
-  <div class="player">
-    <audio id="bgMusic" controls loop>
-      <source src="https://cdn.pixabay.com/download/audio/2022/12/26/audio_7ebf05e400.mp3" type="audio/mpeg">
-      Ваш браузер не поддерживает аудио.
-    </audio>
-  </div>
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/12/26/audio_7ebf05e400.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- Контакты -->
+  <!-- Кнопка музыки -->
+  <button class="music-btn" onclick="toggleMusic()">🎵 Музыка: Выкл</button>
+
   <div class="contacts">
     <a href="https://t.me/" target="_blank">Telegram</a>
     <a href="https://vk.com/" target="_blank">VK</a>
@@ -133,11 +149,29 @@
     document.body.appendChild(flake);
   }
 
+  // Музыка
+  let playing = false;
+  function toggleMusic() {
+    const m = document.getElementById("bgMusic");
+    const btn = document.querySelector(".music-btn");
+
+    if (!playing) {
+      m.play();
+      playing = true;
+      btn.innerText = "🎵 Музыка: Вкл";
+    } else {
+      m.pause();
+      playing = false;
+      btn.innerText = "🎵 Музыка: Выкл";
+    }
+  }
+
   // Переключение языка
   let currentLang = "ru";
   function toggleLang() {
     currentLang = currentLang === "ru" ? "en" : "ru";
-    if(currentLang === "ru") {
+
+    if (currentLang === "ru") {
       title.innerText = "🎄 Привет! Я Карло 🎅";
       subtitle.innerText = "Тут собраны мои контакты. Желаю тебе волшебных праздников! ✨";
     } else {
